@@ -1,3 +1,6 @@
-# Little_things
+# Solution of the N Queens problem
 
-There are little projects that didn't take to long but it was fun and they have things that are a triky.
+Here is the code that I write to solve the famous problem of where to put the queens in a chess board, so they can live with each other
+
+
+https://en.wikipedia.org/wiki/Eight_queens_puzzle
