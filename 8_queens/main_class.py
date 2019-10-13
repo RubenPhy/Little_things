@@ -1,6 +1,5 @@
 import numpy as np
-
-n_rows, n_cols = 4,4
+import matplotlib.pyplot as plt
 
 
 class Queens:
@@ -41,6 +40,21 @@ class Queens:
     def print_valid_solutions(self, positions):
         if len(positions) >= self.size:
             print(positions)
+            # Grid
+            image = np.zeros(self.size**2)*0
+            # Paint the cells where the queens are
+            image[::2] = 0.1 # np.ones(int((self.size + 1)**2/2))
+            for position in positions:
+                places = np.where(self.board == position, True, False)
+                place = [i for i, x in enumerate(places) if x[1] and x[0]]
+                image[place] = 1
+
+            # Reshape things into a chess board
+            image = image.reshape((self.size, self.size))
+            plt.matshow(image)
+            plt.xticks(range(self.size), range(self.size))
+            plt.yticks(range(self.size), range(self.size))
+            plt.show()
 
     def is_in(self, position, board):
         return [] != [x for x in board if position[1] == x[1] and position[0] == x[0]]
@@ -57,7 +71,7 @@ class Queens:
 
 
 def main():
-    Queens(4)
+    Queens(12)
 
 
 if __name__ == "__main__":
